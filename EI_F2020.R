@@ -49,3 +49,4 @@ tempdata %>%
          DateTime == chooseDate) %>%
   ggplot(aes(Sensor, Lat)) + 
   geom_point()
+
