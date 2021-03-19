@@ -22,6 +22,10 @@ library(lubridate)
 #example plots
 #easily changeable dates for plot maker
 
+#filter stream == ms & type == stream
+
+#filter dry censors by std
+
 
 #READ INS
 
@@ -45,8 +49,17 @@ chooseDate <- mdy_hms("08-08-2020 14:00:00")
 
 #graph of chooseDate (Sensor # / Latitude)
 tempdata %>% 
-  filter(Type == "Stream",
-         DateTime == chooseDate) %>%
-  ggplot(aes(Sensor, Lat)) + 
+  filter(Stream == "MS",
+         Type == "Stream",
+         Type != "Air",
+         DateTime == chooseDate,
+         TempCor_F < 72) %>%
+  ggplot(aes(factor(Name, levels = c("MS1", "MS2", "MS3", "MS4", "MS5", "MS6", "MS7",
+                                     "MS8", "MS9", "MS10", "MS11", "MS12",
+                                     "MS13", "MS14", "MS15", "MS16", "MS17", "MS18", 
+                                     "MS19", "MS20", "MS21")), TempCor_F)) + 
   geom_point()
 
+ggplot(aes(x = date, 
+           y = , ))
+  
