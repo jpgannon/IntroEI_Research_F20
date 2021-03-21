@@ -58,8 +58,34 @@ tempdata %>%
                                      "MS8", "MS9", "MS10", "MS11", "MS12",
                                      "MS13", "MS14", "MS15", "MS16", "MS17", "MS18", 
                                      "MS19", "MS20", "MS21")), TempCor_F)) + 
-  geom_point()
+  geom_point()+
+  labs(title = "Water Temp for Each Sensor on 08/08/2020",
+       x = "Sensor Name",
+       y = "Temperature (F)")
 
 ggplot(aes(x = date, 
            y = , ))
+
+
+#attempted graph of 
+tempdata %>% 
+  filter(Stream == "MS",
+         Type == "Stream",
+         Type != "Air",
+         DateTime == chooseDate,
+         TempCor_F < 72) %>%
+  ggplot(aes(factor(Name, levels = c("MS1", "MS2", "MS3", "MS4", "MS5", "MS6", "MS7",
+                                     "MS8", "MS9", "MS10", "MS11", "MS12",
+                                     "MS13", "MS14", "MS15", "MS16", "MS17", "MS18", 
+                                     "MS19", "MS20", "MS21")), TempCor_F)) + 
+  geom_point()+
+  labs(title = "Water Temp for Each Sensor on 08/08/2020",
+       x = "Sensor Name",
+       y = "Temperature (F)")
+
+#set up max for cold and warm temperatures, maybe add some graphs for winter solstice, summer solstice, and the equinoxes
+
+
+
+
   
